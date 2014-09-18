@@ -16,11 +16,20 @@ TrelloClone.Views.BoardIndex = Backbone.View.extend({
 
   events: {
     "click button.btn-create-board": "newForm",
-    "submit form-new-board": "create"
+    "submit .form-new-board": "create",
+    "click button.btn-delete-board": "destroy",
+    "click button.btn-refresh-board": "refresh"
+  },
+
+  destroy: function(event) {
+    event.preventDefault();
+    var id = $(event.currentTarget).data("id");
+    var board = this.collection.get(id);
+    board.destroy();
   },
 
   newForm: function() {
-    var $form = $(this.("li.new-board-form"));
+    var $form = $(this.$el.find("li.new-board-form"));
     $form.find(".btn-create-board");
     $form.html(this.formTemplate());
   },
@@ -32,7 +41,7 @@ TrelloClone.Views.BoardIndex = Backbone.View.extend({
     $("li.new-board-form").append($newBoardButton);
   },
 
-  create: function() {
+  create: function(event) {
     event.preventDefault();
     var $form = $(event.currentTarget);
     var that = this;

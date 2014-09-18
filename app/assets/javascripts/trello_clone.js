@@ -8,7 +8,7 @@ window.TrelloClone = {
     console.log("started Backbone");
 
     new TrelloClone.Routers.Board ({
-      $content: $("#main")
+      $main: $("#main")
     });
 
     Backbone.history.start();

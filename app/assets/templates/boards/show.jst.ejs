@@ -1,0 +1,19 @@
+<h1><%= board.escape("title") %></h1>
+
+<ul class="board-lists">
+  <% board.lists().forEach(function(list) { %>
+    <li>
+      <b>(<%= list.escape("ord") %>)</b>
+      <%= list.escape("title") %>
+      <button class="btn-delete-list" data-id="<%= list.id %>">
+        Delete
+      </button>
+    </li>
+  <% }); %>
+
+    <li class="new-list-form">
+      <button class="btn-create-list">Create</button>
+    </li>
+</ul>
+
+<a href="#">Back to index</a>

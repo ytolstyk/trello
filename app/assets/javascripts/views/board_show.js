@@ -1,0 +1,62 @@
+TrelloClone.Views.BoardShow = Backbone.View.extend({
+
+  template: JST['boards/show'],
+  formTemplate: JST['lists/new'],
+
+  initialize: function() {
+    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model.lists(), "sync add remove", this.render);
+  },
+
+  events: {
+    "click button.btn-create-list": "newForm",
+    "submit .form-new-list": "create",
+    "click button.btn-delete-list": "destroy",
+  },
+
+  newForm: function() {
+    var $form = $(this.$el.find("li.new-list-form"));
+    $form.find(".btn-create-list");
+    $form.html(this.formTemplate());
+  },
+
+  removeForm: function($form) {
+    $form.remove();
+    var $newListButton = $("<button class='btn-create-list'>");
+    $newListButton.text("Create");
+    $("li.new-list-form").append($newListButton);
+  },
+
+  create: function(event) {
+    event.preventDefault();
+    var $form = $(event.currentTarget);
+    var that = this;
+    var newList = new TrelloClone.Models.List({
+      title: $form.find(".new-list-title").val(),
+      ord: $form.find(".new-list-order").val(),
+      board_id: that.model.id
+    });
+
+    newList.save({}, {
+      success: function() {
+        that.model.lists().add(newList);
+        that.removeForm($form);
+      }
+    });
+  },
+
+  destroy: function(event) {
+    event.preventDefault();
+    var id = $(event.currentTarget).data("id");
+    var list = this.model.lists().get(id);
+    list.destroy();
+  },
+
+  render: function() {
+    var renderContent = this.template({ board: this.model });
+    this.$el.html(renderContent);
+
+    return this;
+  }
+
+});

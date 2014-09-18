@@ -1,9 +1,16 @@
 <ul>
   <% boards.each(function(board) { %>
-    <li><%= board.escape("title") %></li>
+    <li><a href="#/<%= board.id %>">
+      <%= board.escape("title") %>
+      <button class="btn-delete-board" data-id="<%= board.id %>">
+        Delete
+      </button>
+    </a></li>
   <% }); %>
     <li class="new-board-form">
       <button class="btn-create-board">Create</button>
-    <li>
+    </li>
 </ul>
+
+<button class=".btn-refresh-board">Refresh</button>
 
