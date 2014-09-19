@@ -21,8 +21,13 @@
             </button>
           </li>
           <% }); %>
-          <li class="card-list">
-            <button class="btn-create-card">add card</button>
+          <li class="card-list"
+            id="new-card-form-<%= list.id %>"
+            data-list-id="<%= list.id %>">
+            <button class="btn-create-card" 
+              data-list-id="<%= list.id %>">
+              add card
+            </button>
           </li>
         </ul>
 
