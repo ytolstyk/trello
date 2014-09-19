@@ -12,6 +12,13 @@ TrelloClone.Views.BoardShow = Backbone.View.extend({
     "click button.btn-create-list": "newForm",
     "submit .form-new-list": "create",
     "click button.btn-delete-list": "destroy",
+    "click button.btn-cancel": "cancelForm"
+  },
+
+   cancelForm: function(event) {
+    event.preventDefault();
+    var $form = $(this.$el.find(".form-new-list"));
+    this.removeForm($form);
   },
 
   newForm: function() {

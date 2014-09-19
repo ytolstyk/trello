@@ -16,6 +16,34 @@
 @import "bootstrap";
 @import "font-awesome";
 
+* {
+  list-style: none;
+}
+
+.clearfix::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
 .backdrop {
   margin-top: 70px;
+}
+
+.list-board {
+  float: left;
+  margin: 15px;
+  padding: 5px;
+  border: thin solid grey;
+}
+
+.back-link {
+  
+}
+
+.board-list {
+  float: left;
+  margin: 15px;
+  padding: 5px;
+  border: thin solid grey;
 }

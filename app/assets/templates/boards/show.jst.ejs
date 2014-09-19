@@ -1,24 +1,32 @@
 <h1><%= board.escape("title") %></h1>
 
-<ul class="board-lists">
-  <% board.lists().forEach(function(list) { %>
-    <li>
-      <b>(<%= list.escape("ord") %>)</b>
-      <%= list.escape("title") %>
-      <button class="btn-delete-list" data-id="<%= list.id %>">
-        Delete
-      </button>
+<div class="lists-container clearfix">
+  <ul class="board-lists">
+    <% board.lists().forEach(function(list) { %>
+      <li class="board-list">
+        <b>(<%= list.escape("ord") %>)</b>
+        <%= list.escape("title") %>
+        <button class="btn-delete-list" data-id="<%= list.id %>">
+          Delete
+        </button>
 
-      <ul class="list-cards">
-        
-      </ul>
+        <ul class="list-cards">
+          <% list.cards().forEach(function(card) { %>
+          <li>
+            <%= card.escape("title") %>
+          </li>
+          <% }); %>
+        </ul>
 
-    </li>
-  <% }); %>
+      </li>
+    <% }); %>
 
-    <li class="new-list-form">
-      <button class="btn-create-list">Create</button>
-    </li>
-</ul>
+      <li class="new-list-form board-list">
+        <button class="btn-create-list">Create</button>
+      </li>
+  </ul>
+</div>
 
-<a href="#">Back to index</a>
+<div class="back-link">
+  <a href="#">Back to index</a>
+</div>
