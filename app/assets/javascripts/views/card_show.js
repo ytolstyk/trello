@@ -1,23 +1,24 @@
-TrelloClone.Views.ListShow = Backbone.CompositeView.extend({
-  template: JST['lists/show'],
+TrelloClone.Views.CardShow = Backbone.View.extend({
+  template: JST['cards/show'],
 
   initialize: function () {
     this.listenTo(this.model, "sync add remove", this.render);
   },
 
   events: {
-    "click button.delete-list": "removeSelf"
+    "click .delete-card": "removeSelf"
   },
 
   removeSelf: function(event) {
     event.preventDefault();
     this.model.destroy();
+    this.remove();
   },
 
   render: function() {
     var renderedContent = this.template({ 
-      list: this.model,
-     });
+      card: this.model,
+    });
     this.$el.html(renderedContent);
 
     return this;

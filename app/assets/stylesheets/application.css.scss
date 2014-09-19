@@ -34,6 +34,7 @@
   position: absolute;
   right: 0;
   margin-right: 5px;
+  border-radius: 5px;
 }
 
 .list-board {
@@ -44,6 +45,7 @@
   width: 200px;
   min-height: 50px;
   border: thin solid grey;
+  border-radius: 5px;
 }
 
 .back-link {
@@ -51,27 +53,32 @@
 }
 
 .delete-card {
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
   background-color: white;
   color: grey;
-  border: thin solid lightgrey;
-  border-radius: 50px;
+  border: none;
+  border-radius: 100px;
   opacity: 0;
   transition: opacity 0.5s;
 }
 
-.card-list:hover .delete-card {
+.li-cards:hover .delete-card {
   opacity: 1;
 }
 
-.card-list {
+.li-cards {
   border: thin solid grey;
   padding: 5px;
+  border-radius: 5px;
 }
 
 .delete-list {
   position: absolute;
   right: 0;
   margin-right: 5px;
+  border-radius: 5px;
 }
 
 .li-list {
@@ -82,4 +89,5 @@
   width: 200px;
   min-height: 50px;
   border: thin solid grey;
+  border-radius: 5px; 
 }
