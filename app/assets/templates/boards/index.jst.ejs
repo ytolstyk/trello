@@ -4,10 +4,11 @@
     <% boards.each(function(board) { %>
       <li class="list-board"><a href="#/<%= board.id %>">
         <%= board.escape("title") %>
-        <button class="btn-delete-board" data-id="<%= board.id %>">
-          Delete
-        </button>
-      </a></li>
+      </a>
+      <button class="btn-delete-board" data-id="<%= board.id %>">
+        Delete
+      </button>
+      </li>
     <% }); %>
       <li class="new-board-form list-board">
         <button class="btn-create-board">Create</button>

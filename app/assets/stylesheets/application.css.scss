@@ -30,10 +30,19 @@
   margin-top: 70px;
 }
 
+.btn-delete-board {
+  position: absolute;
+  right: 0;
+  margin-right: 5px;
+}
+
 .list-board {
+  position: relative;
   float: left;
   margin: 15px;
   padding: 5px;
+  width: 200px;
+  min-height: 50px;
   border: thin solid grey;
 }
 
@@ -41,9 +50,36 @@
   
 }
 
+.btn-delete-card {
+  background-color: white;
+  color: grey;
+  border: thin solid lightgrey;
+  border-radius: 50px;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.card-list:hover .btn-delete-card {
+  opacity: 1;
+}
+
+.card-list {
+  border: thin solid grey;
+  padding: 5px;
+}
+
+.btn-delete-list {
+  position: absolute;
+  right: 0;
+  margin-right: 5px;
+}
+
 .board-list {
+  position: relative;
   float: left;
   margin: 15px;
   padding: 5px;
+  width: 200px;
+  min-height: 50px;
   border: thin solid grey;
 }

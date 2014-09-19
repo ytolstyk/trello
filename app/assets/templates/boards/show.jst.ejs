@@ -12,10 +12,18 @@
 
         <ul class="list-cards">
           <% list.cards().forEach(function(card) { %>
-          <li>
+          <li class="card-list">
             <%= card.escape("title") %>
+            <button class="btn-delete-card"
+              data-id="<%= card.id %>"
+              data-list-id="<%= list.id %>">
+              X
+            </button>
           </li>
           <% }); %>
+          <li class="card-list">
+            <button class="btn-create-card">add card</button>
+          </li>
         </ul>
 
       </li>
