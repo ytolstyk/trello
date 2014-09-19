@@ -3,5 +3,9 @@
 #  - its lists
 #    - the cards for each list
 
+
+
 json.(@board, :title)
-json.lists @board.lists
+json.lists @board.lists do |list|
+  json.partial! 'api/lists/list', list: list
+end
