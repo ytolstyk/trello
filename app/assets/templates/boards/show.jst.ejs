@@ -1,42 +1,8 @@
 <h1><%= board.escape("title") %></h1>
 
 <div class="lists-container clearfix">
-  <ul class="board-lists">
-    <% board.lists().forEach(function(list) { %>
-      <li class="board-list">
-        <b>(<%= list.escape("ord") %>)</b>
-        <%= list.escape("title") %>
-        <button class="btn-delete-list" data-id="<%= list.id %>">
-          Delete
-        </button>
+  <ul class="ul-lists">
 
-        <ul class="list-cards">
-          <% list.cards().forEach(function(card) { %>
-          <li class="card-list">
-            <%= card.escape("title") %>
-            <button class="btn-delete-card"
-              data-id="<%= card.id %>"
-              data-list-id="<%= list.id %>">
-              X
-            </button>
-          </li>
-          <% }); %>
-          <li class="card-list"
-            id="new-card-form-<%= list.id %>"
-            data-list-id="<%= list.id %>">
-            <button class="btn-create-card" 
-              data-list-id="<%= list.id %>">
-              add card
-            </button>
-          </li>
-        </ul>
-
-      </li>
-    <% }); %>
-
-      <li class="new-list-form board-list">
-        <button class="btn-create-list">Create</button>
-      </li>
   </ul>
 </div>
 
