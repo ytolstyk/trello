@@ -1,7 +1,7 @@
 # Trello project!
 
 Over the next few days, you will build a clone of [Trello](https://trello.com/).
-
+ 
 The intention of this project is to practice building something a bit bigger on 
 your own in preparation for the final project. This means that these 
 instructions are intentionally vague.
